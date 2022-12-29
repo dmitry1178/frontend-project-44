@@ -3,3 +3,6 @@
 
 ### CodeClimate status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/280f87e773ed8fbb106b/maintainability)](https://codeclimate.com/github/dmitry1178/frontend-project-44/maintainability)
+
+### 1-brain-even.js Asciinema:
+https://asciinema.org/a/0a1ls5zxB5VpXbp8GKEBBnmPr
