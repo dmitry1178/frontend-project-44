@@ -24,7 +24,7 @@ const playingEvenGame = () => {
     }
   }
 
-  return console.log(`, ${userName}!`);
+  return console.log(`Congratulations, ${userName}!`);
 };
 
 export default playingEvenGame;
