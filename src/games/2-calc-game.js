@@ -12,17 +12,28 @@ const playingCalcGame = () => {
     const genNumber2 = Math.floor(Math.random() * multiFactorRandomNum);
 
     const arrayMathSign = ['+', '-', '*'];
-    const genRandomMathSign = Math.floor(Math.random() * arrayMathSign.length);
-    const mathExpression = `${genNumber1} ${arrayMathSign[genRandomMathSign]} ${genNumber2}`;
-    const correctAnswer = genNumber1 + genNumber2;
+    const genRandomMathSign = arrayMathSign[Math.floor(Math.random() * arrayMathSign.length)];
+    const mathExpression = `${genNumber1} ${genRandomMathSign} ${genNumber2}`;
 
     console.log(`Question: ${mathExpression}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if (Number(answer) === correctAnswer) {
+    if (genRandomMathSign === '+' && Number(answer) === genNumber1 + genNumber2) {
       console.log('Correct!');
-    } else if (Number(answer) !== correctAnswer) {
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+    } else if (genRandomMathSign === '+' && Number(answer) !== genNumber1 + genNumber2) {
+      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${genNumber1 + genNumber2}'.\nLet's try again, ${userName}!`);
+    }
+
+    if (genRandomMathSign === '-' && Number(answer) === genNumber1 - genNumber2) {
+      console.log('Correct!');
+    } else if (genRandomMathSign === '-' && Number(answer) !== genNumber1 - genNumber2) {
+      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${genNumber1 - genNumber2}'.\nLet's try again, ${userName}!`);
+    }
+
+    if (genRandomMathSign === '*' && Number(answer) === genNumber1 * genNumber2) {
+      console.log('Correct!');
+    } else if (genRandomMathSign === '*' && Number(answer) !== genNumber1 * genNumber2) {
+      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${genNumber1 * genNumber2}'.\nLet's try again, ${userName}!`);
     }
   }
 
