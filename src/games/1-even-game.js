@@ -5,9 +5,10 @@ const playingEvenGame = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  const multiFactorRandomNum = 50;
 
   for (let i = 0; i < 3; i += 1) {
-    const genNumber = Math.floor(Math.random() * 50);
+    const genNumber = Math.floor(Math.random() * multiFactorRandomNum);
     console.log(`Question: ${genNumber}`);
     const answer = readlineSync.question('Your answer: ');
 
