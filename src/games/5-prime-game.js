@@ -1,13 +1,9 @@
 import readlineSync from 'readline-sync';
 
 const isPrime = (num) => {
-  if (num === 0 || num === 1) {
-    return false;
-  }
+  if (num === 0 || num === 1) return false;
   for (let j = 2; j < num; j += 1) {
-    if (num % j === 0) {
-      return false;
-    }
+    if (num % j === 0) return false;
   }
   return true;
 };
