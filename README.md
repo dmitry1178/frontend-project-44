@@ -17,7 +17,7 @@ List of games:
 ## Install
 You need to run the following commands in the terminal:
 ```
-git clone https://github.com/dmitry1178/frontend-project-44.git
+git clone git@github.com:dmitry1178/frontend-project-44.git
 cd frontend-project-44
 make install
 npm install
