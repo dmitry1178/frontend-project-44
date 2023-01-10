@@ -37,15 +37,17 @@ const playingProgressionGame = () => {
     console.log(`Question: ${QuestionProgressString}`);
     const answer = readlineSync.question('Your answer: ');
 
-    const stringToArray = QuestionProgressString.split(' ');
-    const indexFindNum = stringToArray.indexOf('..');
+    const strToArray = QuestionProgressString.split(' ');
+    const indexFindNum = strToArray.indexOf('..');
     let trueAnswer;
     if (indexFindNum === 0) {
-      trueAnswer = Number(stringToArray[1]) - Number((stringToArray[2] - stringToArray[1]));
+      trueAnswer = Number(strToArray[1]) - Number((strToArray[2] - strToArray[1]));
     } else if (indexFindNum === 9) {
-      trueAnswer = Number(stringToArray[8]) + Number((stringToArray[8] - stringToArray[7]));
+      trueAnswer = Number(strToArray[8]) + Number((strToArray[8] - strToArray[7]));
     } else {
-      trueAnswer = Number((stringToArray[indexFindNum + 1] - stringToArray[indexFindNum - 1]) / 2) + Number(stringToArray[indexFindNum - 1]);
+      trueAnswer = Number((strToArray[indexFindNum + 1]
+        - strToArray[indexFindNum - 1])
+        / 2) + Number(strToArray[indexFindNum - 1]);
     }
 
     if (Number(answer) === trueAnswer) {
