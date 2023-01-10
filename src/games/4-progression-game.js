@@ -45,7 +45,9 @@ const playingProgressionGame = () => {
     } else if (indexFindNum === 9) {
       trueAnswer = Number(strToArray[8]) + Number((strToArray[8] - strToArray[7]));
     } else {
-      trueAnswer = Number((strToArray[indexFindNum + 1] - strToArray[indexFindNum - 1]) / 2) + Number(strToArray[indexFindNum - 1]);
+      trueAnswer = Number((strToArray[indexFindNum + 1]
+        - strToArray[indexFindNum - 1])
+        / 2) + Number(strToArray[indexFindNum - 1]);
     }
 
     if (Number(answer) === trueAnswer) {
