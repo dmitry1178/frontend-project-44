@@ -2,8 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
-  "description": "[![Actions Status](https://github.com/dmitry1178/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/dmitry1178/frontend-project-44/actions)",
-  "main": "index.js",
+  "description": "Mind Games is a set of five console games based on popular mobile brain training apps.", 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

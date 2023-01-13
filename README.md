@@ -6,7 +6,7 @@
 
 # Brain-games
 What it is?
-Mind Games is a set of five console games built using popular mobile brain training apps. Each game asks questions that need to be answered. After three correct answers, the game is considered to be completed. Incorrect results end the game and return it again. 
+Mind Games is a set of five console games based on popular mobile brain training apps. Each game asks questions that need to be answered correctly. After three correct answers, the game is considered to be completed. Wrong answers end the game and offer to play it again.
 List of games:
 * Definition of an even number;
 * Calculator. Arithmetic expressions to be evaluated;
