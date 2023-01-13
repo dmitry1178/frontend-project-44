@@ -1,4 +1,25 @@
-import readlineSync from 'readline-sync';
+import runEngine from '../index.js';
+
+import getRandomNumber from '../getRandomNumber.js';
+
+const rules = 'What number is missing in the progression?';
+
+const isEven = (num) => num % 2 === 0;
+
+const generateRound = () => {
+  const question = getRandomNumber();
+  const trueAnswer = isEven(question) === true ? 'yes' : 'no';
+  return [question, trueAnswer];
+};
+
+const startBrainProgression = () => {
+  runEngine(rules, generateRound);
+};
+
+export default startBrainProgression;
+
+
+
 
 const genQuestionProgressString = () => {
   const firstNumUpTo = 20;
@@ -27,15 +48,8 @@ const genQuestionProgressString = () => {
 };
 
 const playingProgressionGame = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log('What number is missing in the progression?');
-
   for (let i = 0; i < 3; i += 1) {
     const QuestionProgressString = genQuestionProgressString();
-    console.log(`Question: ${QuestionProgressString}`);
-    const answer = readlineSync.question('Your answer: ');
 
     const strToArray = QuestionProgressString.split(' ');
     const indexFindNum = strToArray.indexOf('..');
@@ -56,8 +70,4 @@ const playingProgressionGame = () => {
       return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${trueAnswer}'.\nLet's try again, ${userName}!`);
     }
   }
-
-  return console.log(`Congratulations, ${userName}!`);
 };
-
-export default playingProgressionGame;

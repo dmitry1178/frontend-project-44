@@ -1,11 +1,27 @@
-import readlineSync from 'readline-sync';
+import runEngine from '../index.js';
+
+import getRandomNumber from '../getRandomNumber.js';
+
+const rules = 'What is the result of the expression?';
+
+const isEven = (num) => num % 2 === 0;
+
+const generateRound = () => {
+  const question = getRandomNumber();
+  const trueAnswer = isEven(question) === true ? 'yes' : 'no';
+  return [question, trueAnswer];
+};
+
+const startBrainCalc = () => {
+  runEngine(rules, generateRound);
+};
+
+export default startBrainCalc;
+
+
+
 
 const playingCalcGame = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log('What is the result of the expression?');
-
   for (let i = 0; i < 3; i += 1) {
     const multiFactorRandomNum = 50;
     const genNumber1 = Math.floor(Math.random() * multiFactorRandomNum);
@@ -14,9 +30,6 @@ const playingCalcGame = () => {
     const arrayMathSign = ['+', '-', '*'];
     const genRandomMathSign = arrayMathSign[Math.floor(Math.random() * arrayMathSign.length)];
     const mathExpression = `${genNumber1} ${genRandomMathSign} ${genNumber2}`;
-
-    console.log(`Question: ${mathExpression}`);
-    const answer = readlineSync.question('Your answer: ');
 
     if (genRandomMathSign === '+' && Number(answer) === genNumber1 + genNumber2) {
       console.log('Correct!');
@@ -36,8 +49,5 @@ const playingCalcGame = () => {
       return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${genNumber1 * genNumber2}'.\nLet's try again, ${userName}!`);
     }
   }
-
-  return console.log(`Congratulations, ${userName}!`);
 };
 
-export default playingCalcGame;
