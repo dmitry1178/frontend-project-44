@@ -4,12 +4,22 @@ import getRandomNumber from '../getRandomNumber.js';
 
 const rules = 'What is the result of the expression?';
 
-const isEven = (num) => num % 2 === 0;
+const calculatingNum = (num1, sign, num2) => {
+  let result;
+  if (sign === '+') result = num1 + num2;
+  if (sign === '-') result = num1 - num2;
+  if (sign === '*') result = num1 * num2;
+  return result;
+};
 
 const generateRound = () => {
-  const question = getRandomNumber();
-  const trueAnswer = isEven(question) === true ? 'yes' : 'no';
-  return [question, trueAnswer];
+  const arrayMathSign = ['+', '-', '*'];
+  const getMathSign = arrayMathSign[Math.floor(Math.random() * arrayMathSign.length)];
+  const generateNumber1 = getRandomNumber(1, 50);
+  const generateNumber2 = getRandomNumber(1, 50);
+  const question = `${generateNumber1} ${getMathSign} ${generateNumber2}`;
+  const trueAnswer = calculatingNum(generateNumber1, getMathSign, generateNumber2);
+  return [question, String(trueAnswer)];
 };
 
 const startBrainCalc = () => {
@@ -17,37 +27,3 @@ const startBrainCalc = () => {
 };
 
 export default startBrainCalc;
-
-
-
-
-const playingCalcGame = () => {
-  for (let i = 0; i < 3; i += 1) {
-    const multiFactorRandomNum = 50;
-    const genNumber1 = Math.floor(Math.random() * multiFactorRandomNum);
-    const genNumber2 = Math.floor(Math.random() * multiFactorRandomNum);
-
-    const arrayMathSign = ['+', '-', '*'];
-    const genRandomMathSign = arrayMathSign[Math.floor(Math.random() * arrayMathSign.length)];
-    const mathExpression = `${genNumber1} ${genRandomMathSign} ${genNumber2}`;
-
-    if (genRandomMathSign === '+' && Number(answer) === genNumber1 + genNumber2) {
-      console.log('Correct!');
-    } else if (genRandomMathSign === '+' && Number(answer) !== genNumber1 + genNumber2) {
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${genNumber1 + genNumber2}'.\nLet's try again, ${userName}!`);
-    }
-
-    if (genRandomMathSign === '-' && Number(answer) === genNumber1 - genNumber2) {
-      console.log('Correct!');
-    } else if (genRandomMathSign === '-' && Number(answer) !== genNumber1 - genNumber2) {
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${genNumber1 - genNumber2}'.\nLet's try again, ${userName}!`);
-    }
-
-    if (genRandomMathSign === '*' && Number(answer) === genNumber1 * genNumber2) {
-      console.log('Correct!');
-    } else if (genRandomMathSign === '*' && Number(answer) !== genNumber1 * genNumber2) {
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${genNumber1 * genNumber2}'.\nLet's try again, ${userName}!`);
-    }
-  }
-};
-

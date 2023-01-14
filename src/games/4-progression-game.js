@@ -4,12 +4,51 @@ import getRandomNumber from '../getRandomNumber.js';
 
 const rules = 'What number is missing in the progression?';
 
-const isEven = (num) => num % 2 === 0;
+const genProgressionArrayNums = () => {
+  const randomFirstNum = getRandomNumber(1, 10);
+  const randomProgressStepNum = getRandomNumber(1, 5);
+  const progressionArray = [];
+  for (let i = randomFirstNum; i < 55; i += randomProgressStepNum) {
+    if (progressionArray.length !== 10) progressionArray.push(i); // make array with 10 numbers
+  }
+  return progressionArray;
+};
+
+const genProgressionWithHiddenNum = () => {
+  const progressionArrayNums = genProgressionArrayNums();
+  const randomIndexFromArray = Math.floor(Math.random() * progressionArrayNums.length);
+  const randomNumFromArray = progressionArrayNums[randomIndexFromArray];
+  const resultArray = [];
+  for (let i = 0; i < progressionArrayNums.length; i += 1) {
+    if (progressionArrayNums[i] === randomNumFromArray) {
+      resultArray[i] = '..';
+    } else {
+      resultArray[i] = progressionArrayNums[i];
+    }
+  }
+  return resultArray;
+};
+
+const calculatingHiddenNumber = (array) => {
+  const findIndexHiddenNum = array.indexOf('..');
+  let result;
+  if (findIndexHiddenNum === 0) {
+    result = array[1] - (array[2] - array[1]);
+  } else if (findIndexHiddenNum === array.length - 1) {
+    result = array[array.length - 2] + (array[array.length - 2] - array[array.length - 3]);
+  } else {
+    result = (array[findIndexHiddenNum + 1]
+    - array[findIndexHiddenNum - 1])
+    / 2 + array[findIndexHiddenNum - 1];
+  }
+  return result;
+};
 
 const generateRound = () => {
-  const question = getRandomNumber();
-  const trueAnswer = isEven(question) === true ? 'yes' : 'no';
-  return [question, trueAnswer];
+  const progressionWithHiddenNum = genProgressionWithHiddenNum();
+  const question = progressionWithHiddenNum.join(' ');
+  const trueAnswer = calculatingHiddenNumber(progressionWithHiddenNum);
+  return [question, String(trueAnswer)];
 };
 
 const startBrainProgression = () => {
@@ -17,57 +56,3 @@ const startBrainProgression = () => {
 };
 
 export default startBrainProgression;
-
-
-
-
-const genQuestionProgressString = () => {
-  const firstNumUpTo = 20;
-  const randomFirstNum = Math.floor(Math.random() * firstNumUpTo);
-  const progressStepRangeUpTo = 5;
-  const randomNumProgressStep = Math.floor(Math.random() * progressStepRangeUpTo);
-
-  let progressNums = '';
-  for (let i = randomFirstNum; i < 65; i += randomNumProgressStep) {
-    progressNums += `${i}${' '}`;
-  }
-  const progressionNumsArray = progressNums.split(' ').slice(0, 10);
-
-  const arrayLengthRandomIndex = Math.floor(Math.random() * progressionNumsArray.length);
-  const randomNumFromArray = progressionNumsArray[arrayLengthRandomIndex];
-
-  const resultArray = [];
-  for (let i = 0; i < progressionNumsArray.length; i += 1) {
-    if (progressionNumsArray[i] === randomNumFromArray) {
-      resultArray[i] = '..';
-    } else {
-      resultArray[i] = progressionNumsArray[i];
-    }
-  }
-  return resultArray.join(' ');
-};
-
-const playingProgressionGame = () => {
-  for (let i = 0; i < 3; i += 1) {
-    const QuestionProgressString = genQuestionProgressString();
-
-    const strToArray = QuestionProgressString.split(' ');
-    const indexFindNum = strToArray.indexOf('..');
-    let trueAnswer;
-    if (indexFindNum === 0) {
-      trueAnswer = Number(strToArray[1]) - Number((strToArray[2] - strToArray[1]));
-    } else if (indexFindNum === 9) {
-      trueAnswer = Number(strToArray[8]) + Number((strToArray[8] - strToArray[7]));
-    } else {
-      trueAnswer = Number((strToArray[indexFindNum + 1]
-        - strToArray[indexFindNum - 1])
-        / 2) + Number(strToArray[indexFindNum - 1]);
-    }
-
-    if (Number(answer) === trueAnswer) {
-      console.log('Correct!');
-    } else {
-      return console.log(`'${answer}' is wrong answer ;(. Correct answer was '${trueAnswer}'.\nLet's try again, ${userName}!`);
-    }
-  }
-};

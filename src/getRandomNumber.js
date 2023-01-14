@@ -1,6 +1,3 @@
-const getRandomNumber = () => {
-  const randomNumUpTo = 50;
-  return Math.floor(Math.random() * randomNumUpTo);
-};
+const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 export default getRandomNumber;
