@@ -14,7 +14,7 @@ const calculatingNum = (num1, sign, num2) => {
 };
 
 const generateRound = () => {
-  const mathSign = ['+', '-', '*', '/'];
+  const mathSign = ['+', '-', '*'];
   const getMathSign = mathSign[getRandomNumber(0, mathSign.length - 1)];
   const generateNumber1 = getRandomNumber(1, maxNumber1UpTo);
   const generateNumber2 = getRandomNumber(1, maxNumber2UpTo);
