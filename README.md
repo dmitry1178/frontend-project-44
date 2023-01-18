@@ -31,7 +31,7 @@ You need to determine if the number is even or not.
 ##### Starting the game:
 ``` brain-even ```
 ##### Presentation Asciinema:
-[![asciicast](https://asciinema.org/a/h6kM4Ep3e7YVx6wsZX9gCtp5I.svg)](https://asciinema.org/a/h6kM4Ep3e7YVx6wsZX9gCtp5I)
+[![asciicast](https://asciinema.org/a/552563.svg)](https://asciinema.org/a/552563)
 ***
 
 ### 2. Brain-calc
@@ -39,7 +39,7 @@ You need to calculate the result of adding, subtracting or multiplying two numbe
 ##### Starting the game:
 ``` brain-calc ```
 ##### Presentation Asciinema:
-[![asciicast](https://asciinema.org/a/w0BWfs4mNe7sP4FSx9AfcTPbc.svg)](https://asciinema.org/a/w0BWfs4mNe7sP4FSx9AfcTPbc)
+[![asciicast](https://asciinema.org/a/552568.svg)](https://asciinema.org/a/552568)
 ***
 
 ### 3. Brain-gcd
@@ -47,7 +47,7 @@ You need to determine the common divisor of two numbers.
 ##### Starting the game:
 ``` brain-gcd ```
 ##### Presentation Asciinema:
-[![asciicast](https://asciinema.org/a/rwLoXWdrT5SUuWCKQtkA9ANF6.svg)](https://asciinema.org/a/rwLoXWdrT5SUuWCKQtkA9ANF6)
+[![asciicast](https://asciinema.org/a/552570.svg)](https://asciinema.org/a/552570)
 ***
 
 ### 4. Brain-progression
@@ -55,7 +55,7 @@ You need to calculate what number is "hidden" in an arithmetic progression.
 ##### Starting the game:
 ``` brain-progression ```
 ##### Presentation Asciinema:
-[![asciicast](https://asciinema.org/a/T80k0IKcLNKS3nTgNbVuDQ8j4.svg)](https://asciinema.org/a/T80k0IKcLNKS3nTgNbVuDQ8j4)
+[![asciicast](https://asciinema.org/a/552571.svg)](https://asciinema.org/a/552571)
 ***
 
 ### 5. Brain-prime
@@ -63,4 +63,4 @@ You need to determine if a number is prime (divisible only by 1 and itself witho
 ##### Starting the game:
 ``` brain-prime ```
 ##### Presentation Asciinema:
-[![asciicast](https://asciinema.org/a/zRR5wPJgHrY6KHKVUqE4kdMdT.svg)](https://asciinema.org/a/zRR5wPJgHrY6KHKVUqE4kdMdT)
+[![asciicast](https://asciinema.org/a/552575.svg)](https://asciinema.org/a/552575)
